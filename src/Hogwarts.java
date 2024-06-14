@@ -1,21 +1,16 @@
-public class HogwartsStudent {
-    private String faculty;
+public class Hogwarts {
     private String firstName;
     private String lastName;
     private int transgressionRange;
     private int powerOfMagic;
 
-    public HogwartsStudent(String faculty, String firstName, String lastName, int transgressionRange, int powerOfMagic) {
-        this.faculty = faculty;
+    public Hogwarts(String firstName, String lastName, int transgressionRange, int powerOfMagic) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.transgressionRange = transgressionRange;
         this.powerOfMagic = powerOfMagic;
     }
 
-    public String getFaculty() {
-        return this.faculty;
-    }
 
     public String getFirstName() {
         return this.firstName;
@@ -41,7 +36,7 @@ public class HogwartsStudent {
         this.powerOfMagic = powerOfMagic;
     }
 
-    public void compareStudents(HogwartsStudent st1, HogwartsStudent st2) {
+    public void compareStudents(Hogwarts st1, Hogwarts st2) {
         int a = st1.getPowerOfMagic() + st1.getTransgressionRange();
         int b = st2.getPowerOfMagic() + st2.getTransgressionRange();
         if (a > b) {
@@ -52,14 +47,16 @@ public class HogwartsStudent {
     }
 }
 
-class Griffindor extends HogwartsStudent {
+class Griffindor extends Hogwarts {
+    private String faculty;
     private int nobility;
     private int honor;
     private int courage;
 
-    public Griffindor(String faculty, String firstName, String lastName, int transgressionRange, int powerOfMagic,
+    public Griffindor(String firstName, String lastName, int transgressionRange, int powerOfMagic,
                       int nobility, int honor, int courage) {
-        super(faculty, firstName, lastName, transgressionRange, powerOfMagic);
+        super(firstName, lastName, transgressionRange, powerOfMagic);
+        this.faculty = "Griffindor";
         this.nobility = nobility;
         this.honor = honor;
         this.courage = courage;
@@ -73,8 +70,12 @@ class Griffindor extends HogwartsStudent {
         return this.honor;
     }
 
-    public int getСourage() {
+    public int getCourage() {
         return this.courage;
+    }
+
+    public String getFaculty() {
+        return this.faculty;
     }
 
     public void setNobility(int nobility) {
@@ -92,12 +93,12 @@ class Griffindor extends HogwartsStudent {
     @Override
     public String toString() {
         return "Имя - " + getFirstName() + " " + getLastName() + ". Факультет - " + getFaculty() + ". Благородсто - " + getNobility() +
-                " честь - " + getHonor() + " храбрость - " + getСourage();
+                " честь - " + getHonor() + " храбрость - " + getCourage();
     }
 
     public void compareStudentsOfThisFaculty(Griffindor st1, Griffindor st2) {
-        int a = st1.getСourage() + st1.getHonor() + st1.getNobility();
-        int b = st2.getСourage() + st2.getHonor() + st2.getNobility();
+        int a = st1.getCourage() + st1.getHonor() + st1.getNobility();
+        int b = st2.getCourage() + st2.getHonor() + st2.getNobility();
         if (a > b) {
             System.out.println(st1.getFirstName() + " is cooler than " + st2.getFirstName());
         } else {
@@ -106,14 +107,16 @@ class Griffindor extends HogwartsStudent {
     }
 }
 
-class Hufflepuff extends HogwartsStudent {
+class Hufflepuff extends Hogwarts {
+    private String faculty;
     private int hardWork;
     private int loyalty;
     private int honesty;
 
-    public Hufflepuff(String faculty, String firstName, String lastName, int transgressionRange, int powerOfMagic,
+    public Hufflepuff(String firstName, String lastName, int transgressionRange, int powerOfMagic,
                       int hardWork, int loyalty, int honesty) {
-        super(faculty, firstName, lastName, transgressionRange, powerOfMagic);
+        super(firstName, lastName, transgressionRange, powerOfMagic);
+        this.faculty = "Hufflepuff";
         this.hardWork = hardWork;
         this.loyalty = loyalty;
         this.honesty = honesty;
@@ -129,6 +132,10 @@ class Hufflepuff extends HogwartsStudent {
 
     public int getHonesty() {
         return this.honesty;
+    }
+
+    public String getFaculty() {
+        return this.faculty;
     }
 
     public void setHardWork(int hardWork) {
@@ -160,15 +167,17 @@ class Hufflepuff extends HogwartsStudent {
     }
 }
 
-class Ravenclaw extends HogwartsStudent {
+class Ravenclaw extends Hogwarts {
+    private String faculty;
     private int smart;
     private int wise;
     private int wit;
     private int creativity;
 
-    public Ravenclaw(String faculty, String firstName, String lastName, int transgressionRange, int powerOfMagic,
+    public Ravenclaw(String firstName, String lastName, int transgressionRange, int powerOfMagic,
                      int smart, int wise, int wit, int creativity) {
-        super(faculty, firstName, lastName, transgressionRange, powerOfMagic);
+        super(firstName, lastName, transgressionRange, powerOfMagic);
+        this.faculty = "Ravenclaw";
         this.smart = smart;
         this.wise = wise;
         this.wit = wit;
@@ -189,6 +198,10 @@ class Ravenclaw extends HogwartsStudent {
 
     public int getCreativity() {
         return this.creativity;
+    }
+
+    public String getFaculty() {
+        return this.faculty;
     }
 
     public void setSmart(int smart) {
@@ -224,16 +237,18 @@ class Ravenclaw extends HogwartsStudent {
     }
 }
 
-class Slytherin extends HogwartsStudent {
+class Slytherin extends Hogwarts {
+    private String faculty;
     private int cunning;
     private int determination;
     private int ambition;
     private int resourcefulness;
     private int lustForPower;
 
-    public Slytherin(String faculty, String firstName, String lastName, int transgressionRange, int powerOfMagic,
+    public Slytherin(String firstName, String lastName, int transgressionRange, int powerOfMagic,
                      int cunning, int determination, int ambition, int resourcefulness, int lustForPower) {
-        super(faculty, firstName, lastName, transgressionRange, powerOfMagic);
+        super(firstName, lastName, transgressionRange, powerOfMagic);
+        this.faculty = "Slytherin";
         this.cunning = cunning;
         this.determination = determination;
         this.ambition = ambition;
@@ -261,6 +276,10 @@ class Slytherin extends HogwartsStudent {
         return this.lustForPower;
     }
 
+    public String getFaculty() {
+        return this.faculty;
+    }
+
     public void setCunning(int cunning) {
         this.cunning = cunning;
     }
@@ -280,6 +299,7 @@ class Slytherin extends HogwartsStudent {
     public void setLustForPower(int lustForPower) {
         this.lustForPower = lustForPower;
     }
+
     @Override
     public String toString() {
         return "Имя - " + getFirstName() + " " + getLastName() + ". Факультет - " + getFaculty() + ". Хитрость - " + getCunning() +
